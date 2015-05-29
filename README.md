@@ -18,22 +18,24 @@ Backup the MySQL databases of all your hosted websites to your computer by using
 
         {
             "settings": {
-                "backup_folder": "backup/" /* The local backup folder */
+                "backup_folder": "backup/"          /* The local backup folder */
             },
             "websites": {
+
                 "name_firstwebsite": {
                     "config": {
-                        "host": "",             /* Webserver hostname */
-                        "username": ""          /* Webserver username */
+                        "host": "",                 /* Webserver hostname */
+                        "username": ""              /* Webserver username */
                     },
                     "databases": {
-                        "database_examplename": {
-                            "mysql_host": "",   /* Mysql hostname */
-                            "mysql_user": "",   /* Mysql username */
-                            "mysql_pwd": ""     /* Mysql password */
+                        "database_examplename1": {
+                            "mysql_host": "",       /* Mysql hostname */
+                            "mysql_user": "",       /* Mysql username */
+                            "mysql_pwd": ""         /* Mysql password */
                         }
                     }
-                },                  
+                },      
+
                 "name_secondwebsite": {
                     ...
                 }
