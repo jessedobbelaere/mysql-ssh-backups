@@ -39,7 +39,7 @@ Backup the MySQL databases of all your hosted websites to your computer by using
             }
         }
 
-6. Run `python backup-mysql-database-ssh.py` to backup your database or configure it to run periodically as a cronjob (OS X tip: [Lingon](https://www.peterborgapps.com/lingon/)). 
+6. Run `python backup-mysql-database-ssh.py` to backup your database or configure it to run periodically as a cronjob (OS X tip: [Lingon](https://www.peterborgapps.com/lingon/)). Using Lingon, create a new task, give it a name and let it execute `/usr/bin/python /Users/pathtoscript/backup-mysql-database-ssh.py` at e.g. every 12 hours. 
 
 ## Bugs
 
