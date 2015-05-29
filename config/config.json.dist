@@ -3,8 +3,7 @@
         "backup_folder": "backup/"
     },
     "websites": {
-
-        "woestyne.be": {
+        "labelnameforthewebsite": {
             "config": {
                 "host": "",
                 "username": "",
@@ -16,6 +15,5 @@
                 ""
             ]
         }
-
     }
 }
