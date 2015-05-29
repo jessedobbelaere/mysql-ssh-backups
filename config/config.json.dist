@@ -1,0 +1,21 @@
+{
+    "settings": {
+        "backup_folder": "backup/"
+    },
+    "websites": {
+
+        "woestyne.be": {
+            "config": {
+                "host": "",
+                "username": "",
+                "mysql_host": "",
+                "mysql_user": "",
+                "mysql_pwd": ""
+            },
+            "databases": [
+                ""
+            ]
+        }
+
+    }
+}
