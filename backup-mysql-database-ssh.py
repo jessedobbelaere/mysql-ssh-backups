@@ -44,7 +44,7 @@ for website in config_file['websites']:
             os.makedirs(backup_folder + website + '/' + database)
 
         # Create backup file
-        ssh('mysqldump -u' + config_file['websites'][website]['config']['mysql_user'] + ' -p' + config_file['websites'][website]['config']['mysql_pwd'] + ' -h' + config_file['websites'][website]['config']['mysql_host'] + ' ' + database + ' --lock-tables=false | bzip2 - - > db-backup-tmp.sql.bz2')
+        ssh('mysqldump -u' + config_file['websites'][website]['databases'][database]['mysql_user'] + ' -p' + config_file['websites'][website]['databases'][database]['mysql_pwd'] + ' -h' + config_file['websites'][website]['databases'][database]['mysql_host'] + ' ' + database + ' --lock-tables=false | bzip2 - - > db-backup-tmp.sql.bz2')
         
         # Open SFTP connection & download the backup file to the backup dir
         remote_file = sftp_client.get("db-backup-tmp.sql.bz2", backup_folder + website + '/' + database + "/backup-" + time.strftime("%Y-%m-%d-%H%M%S") + ".sql.bz2")

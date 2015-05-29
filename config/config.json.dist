@@ -3,17 +3,18 @@
         "backup_folder": "backup/"
     },
     "websites": {
-        "labelnameforthewebsite": {
+        "nameforthefirstwebsite": {
             "config": {
                 "host": "",
-                "username": "",
-                "mysql_host": "",
-                "mysql_user": "",
-                "mysql_pwd": ""
+                "username": ""
             },
-            "databases": [
-                ""
-            ]
+            "databases": {
+                "databasename1": {
+                    "mysql_host": "",
+                    "mysql_user": "",
+                    "mysql_pwd": ""
+                }
+            }
         }
     }
 }
