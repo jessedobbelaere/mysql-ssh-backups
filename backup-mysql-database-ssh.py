@@ -17,10 +17,13 @@ def ssh(cmd):
     return list(out)
 
 
+# Get current script directory
+script_dir_path = os.path.dirname(os.path.realpath(__file__))
+
 # Loading the configuration file
-config_file = open("config/config.json", "r")
+config_file = open(script_dir_path + "/config/config.json", "r")
 config_file = json.load(config_file)
-backup_folder = config_file['settings']['backup_folder']
+backup_folder = script_dir_path + '/' + config_file['settings']['backup_folder']
 
 # Loop every website to backup
 for website in config_file['websites']:
