@@ -32,7 +32,7 @@ for website in config_file['websites']:
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.load_system_host_keys()
-    client.connect(config_file['websites'][website]['config']['host'], username=config_file['websites'][website]['config']['username'])
+    client.connect(config_file['websites'][website]['config']['host'], username=config_file['websites'][website]['config']['username'], look_for_keys=False)
 
     # Open SFTP connection
     sftp_client = client.open_sftp()
