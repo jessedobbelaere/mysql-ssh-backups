@@ -27,12 +27,12 @@ backup_folder = script_dir_path + '/' + config_file['settings']['backup_folder']
 
 # Loop every website to backup
 for website in config_file['websites']:
-    
+
     # Open SSH connection
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.load_system_host_keys()
-    client.connect(config_file['websites'][website]['config']['host'], username=config_file['websites'][website]['config']['username'], look_for_keys=False)
+    client.connect(config_file['websites'][website]['config']['host'], username=config_file['websites'][website]['config']['username'])
 
     # Open SFTP connection
     sftp_client = client.open_sftp()
@@ -48,10 +48,10 @@ for website in config_file['websites']:
 
         # Create backup file
         ssh('mysqldump -u' + config_file['websites'][website]['databases'][database]['mysql_user'] + ' -p' + config_file['websites'][website]['databases'][database]['mysql_pwd'] + ' -h' + config_file['websites'][website]['databases'][database]['mysql_host'] + ' ' + database + ' --lock-tables=false | bzip2 - - > db-backup-tmp.sql.bz2')
-        
+
         # Open SFTP connection & download the backup file to the backup dir
         remote_file = sftp_client.get("db-backup-tmp.sql.bz2", backup_folder + website + '/' + database + "/backup-" + time.strftime("%Y-%m-%d-%H%M%S") + ".sql.bz2")
-        
+
         # Remove the tmp sql file from the server
         ssh('rm db-backup-tmp.sql.bz2')
 
